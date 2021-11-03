@@ -1,3 +1,4 @@
+export LD_LIBRARY_PATH=$(shell pwd)
 
 all: test cgo
 
@@ -7,7 +8,8 @@ test: bcipher.c
 
 cgo: main.go
 	go build .
+	ldd af_alg
 
 
 clean:
-	rm -rf cgo  libbcipher.so
+	rm -rf af_alg  libbcipher.so
